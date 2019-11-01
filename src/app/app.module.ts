@@ -7,8 +7,11 @@ import { EntriesComponent } from './entries/entries.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 
+// services
 import { EntryService } from './entry.service';
 import {HttpClientModule} from '@angular/common/http';
+import { AuthService } from './auth.service';
+
 
 // metrial design
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -17,9 +20,11 @@ import { MatButtonModule, MatInputModule, MatCardModule, MatSelectModule, MatTab
 import { NewEntryComponent } from './new-entry/new-entry.component';
 
 // forms
-import {ReactiveFormsModule} from '@angular/forms';
+import {ReactiveFormsModule, FormsModule} from '@angular/forms';
 import { UpdateEntryComponent } from './update-entry/update-entry.component';
 import { DeleteEntryComponent } from './delete-entry/delete-entry.component';
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -30,16 +35,19 @@ import { DeleteEntryComponent } from './delete-entry/delete-entry.component';
     NewEntryComponent,
     UpdateEntryComponent,
     DeleteEntryComponent,
+    RegisterComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule,
     // Material
     BrowserAnimationsModule,
     MatButtonModule,
     MatTableModule,
-    ReactiveFormsModule,
     MatInputModule,
     MatCardModule,
     MatSelectModule,
@@ -48,7 +56,7 @@ import { DeleteEntryComponent } from './delete-entry/delete-entry.component';
     MatListModule
   ],
   entryComponents: [UpdateEntryComponent],
-  providers: [EntryService],
+  providers: [EntryService, AuthService],
   bootstrap: [AppComponent]
 })
 
